@@ -2,6 +2,8 @@
   "expo": {
     "name": "ucaldas-auth",
     "slug": "ucaldas-auth",
+    "owner": "yaneth.mejiar",
+    "scheme": "com.ucaldas.estudiantes",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,17 +15,50 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ucaldas.estudiantes",
+      "infoPlist": {
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": [
+              "com.ucaldas.estudiantes"
+            ]
+          }
+        ]
+      }
     },
     "android": {
+      "package": "com.ucaldas.estudiantes",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "com.ucaldas.estudiantes"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-web-browser",
+      "@react-native-google-signin/google-signin"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "fc146f4b-9970-411a-8e7c-360e6652104e"
+      }
     }
   }
 }
